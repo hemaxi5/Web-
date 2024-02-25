@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppercase First Letter</title>
+</head>
+<body>
+
+<h1>Uppercase First Letter</h1>
+
+<p>Enter a sentence:</p>
+
+<input type="text" id="sentence" placeholder="Enter a sentence">
+<button onclick="convertFirstLetter()">Convert</button>
+
+<p id="result"></p>
+
+<script>
+    function convertFirstLetter() {
+        var sentence = document.getElementById("sentence").value;
+        var convertedSentence = capitalizeFirstLetter(sentence);
+        document.getElementById("result").innerText = convertedSentence;
+    }
+
+    function capitalizeFirstLetter(sentence) {
+        // Split the sentence into words
+        var words = sentence.split(" ");
+
+        // Iterate over each word and capitalize the first letter
+        for (var i = 0; i < words.length; i++) {
+            // Capitalize the first letter of the word
+            var firstLetter = words[i].charAt(0).toUpperCase();
+            // Concatenate the capitalized first letter with the rest of the word
+            var restOfWord = words[i].slice(1);
+            // Update the word in the array with the capitalized version
+            words[i] = firstLetter + restOfWord;
+        }
+
+        // Join the words back into a sentence
+        var convertedSentence = words.join(" ");
+        
+        return convertedSentence;
+    }
+</script>
+
+</body>
+</html>
